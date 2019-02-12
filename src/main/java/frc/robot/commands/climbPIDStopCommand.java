@@ -9,10 +9,9 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-public class hatchRetrieve extends Command {
-  public hatchRetrieve() {
+public class climbPIDStopCommand extends Command {
+  public climbPIDStopCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -25,14 +24,7 @@ public class hatchRetrieve extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // System.out.println("Button is held down");
-    // NetworkTableInstance inst = NetworkTableInstance.getDefault();
-    // NetworkTable table = inst.getTable("limelight-one");
-    // NetworkTableEntry tvEntry = table.getEntry("tv");
-    /// tvEntry.addListener(event -> {
-    /// System.out.println("Vision Lock is currently " + event.value.getValue());
-    /// }, EntryListenerFlags.kNew | EntryListenerFlags.kUpdate);//
-    Robot.beakSolenoid.set(DoubleSolenoid.Value.kForward);
+    Robot.m_fClimbPID.disable();
   }
 
   // Make this return true when this Command no longer needs to run execute()
